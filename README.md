@@ -9,6 +9,8 @@
 
 也算是派上了用场，直接在10.14下的老版xcode中把报错信息中的路径和文件夹直接拷贝到新版里就ok了
 
+路径：/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Xcode/Specifications
+
 有人同样有需求的话自提吧，就是这个项目中这个文件夹，根据报错放进去就好
 
 从10.14一路升上来的不会有问题，目前只发现全新的会出现。
