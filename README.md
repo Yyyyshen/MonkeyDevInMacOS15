@@ -14,3 +14,36 @@
 有人同样有需求的话自提吧，就是这个项目中这个文件夹，根据报错放进去就好
 
 从10.14一路升上来的不会有问题，目前只发现全新的会出现。
+
+另外，按作者wiki的自动安装脚本可能会遇到curl报错: Failed to connect to raw.githubusercontent.com port:443
+
+如果使用代理，改hosts均无法解决问题，可以选择手动安装
+
+手动clone项目及依赖，运行安装脚本
+
+git clone https://github.com/AloneMonkey/MonkeyDev.git
+
+git clone -b 3.x https://github.com/AloneMonkey/frida-ios-dump.git
+
+sudo MonkeyDev/bin/md-install
+
+遇到上述错误时，拷贝文件frida-ios-dump/dump.py和frida-ios-dump/dump.js，粘贴到opt/MonkeyDev/bin
+
+之后修改安装脚本md-install，注释掉下载部分
+
+#下载一些基础文件和模板文件
+
+#downloadGithubTarball "https://codeload.github.com/AloneMonkey/MonkeyDev/tar.gz/$branch" "$MonkeyDevPath" "MonkeyDev base"
+
+#downloadGithubTarball "https://codeload.github.com/AloneMonkey/MonkeyDev-Xcode-Templates/tar.gz/$branch" "$MonkeyDevPath/templates" "Xcode templates"
+
+##下载frida-ios-dump
+
+#echo "Downloading frida-ios-dump from Github..."
+
+#downloadFile "https://raw.githubusercontent.com/AloneMonkey/frida-ios-dump/3.x/dump.py" "$MonkeyDevPath/bin/dump.py"
+
+#downloadFile "https://raw.githubusercontent.com/AloneMonkey/frida-ios-dump/3.x/dump.js" "$MonkeyDevPath/bin/dump.js"
+
+保存后再次运行脚本，安装成功。
+
